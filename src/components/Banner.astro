@@ -1,0 +1,24 @@
+---
+import HeaderLink from './HeaderLink.astro';
+import BannerImage from '../assets/banner.png';
+
+interface Props {
+	image?: ImageMetadata;
+}
+
+const { image = BannerImage } = Astro.props;
+
+---
+
+<div class="banner" style={`background-image: url(${image.src})`}>
+ 
+</div>
+
+<style define:vars={{ image:image.src }}>
+	.banner {
+        background-repeat: no-repeat;
+        background-size: cover;
+          background-position: center center;
+        height: min(30vh, 350px);
+    }
+</style>
